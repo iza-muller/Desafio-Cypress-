@@ -16,7 +16,7 @@ git clone https://github.com/iza-muller/challenge-cypress.git
 navegue ate o diretorio do projeto
 cd challenge-cypress
 
-instale as depêndencias do porjeto
+instale as Dependências do projeto
 npm install
 
 ## Como Rodar os Testes
