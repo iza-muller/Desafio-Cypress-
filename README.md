@@ -12,6 +12,13 @@ Este projeto consiste em uma automação de testes para um API usando o framewor
 
 ```bash
 git clone https://github.com/iza-muller/challenge-cypress.git
+
+navegue ate o diretorio do projeto
+cd challenge-cypress
+
+instale as depêndencias do porjeto
+npm install
+
 ## Como Rodar os Testes
 
 Para rodar os testes de API com Cypress, use o seguinte comando:
