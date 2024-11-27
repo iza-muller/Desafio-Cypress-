@@ -11,8 +11,11 @@ describe('CT010 - Realizar Logout com sucesso ao clicar em "Finalizar"', () => {
         // Passo 3: Esperar a página de home carregar e verificar se a URL é correta
         cy.url().should('include', '/app/home');
         
-        // Passo 4: Aguardar o link 'Finalizar' aparecer, rolar até ele e clicar nele
-        cy.get('.navbar-finalizar > .nav-link')
+        cy.get('a.nav-link.logout')  
+     .scrollIntoView()          
+     .click({ force: true });
+
+     cy.get('.btn-danger-modal').should('be.visible').click();
 
         // Passo 5: Aguardar a exibição da mensagem de confirmação
         //cy.get('.btn').click().and('contain.text', 'Para submeter os dados do projeto, clique em \'Enviar\'. Se desejar sair, clique em \'Logout\'.');
@@ -24,5 +27,5 @@ describe('CT010 - Realizar Logout com sucesso ao clicar em "Finalizar"', () => {
 
         // Passo 8: Verificar se o campo de login está visível, indicando que o usuário foi desconectado
         //cy.get('#floatingInput').should('be.visible'); // O campo de e-mail de login deve estar visível após o logout
-    });
+    });
 });
