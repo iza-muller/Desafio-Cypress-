@@ -36,8 +36,9 @@ git clone https://github.com/iza-muller/challenge-cypress.git
 # Acesse o diretório do projeto
 cd challenge-cypress
 
-Como Instalar o Cypress 🚀
+## Como Instalar o Cypress 🚀
 Para instalar o Cypress, execute os seguintes comandos:
+
 # Instale o Cypress como dependência de desenvolvimento
 npm install cypress --save-dev
 
@@ -54,7 +55,7 @@ echo '{
   "viewportWidth": 1280
 }' > cypress.json
 
-Executando os Testes 🚀
+## Executando os Testes 🚀
 Para executar os testes, você pode escolher entre duas opções:
 # 1. Abra o Test Runner do Cypress
 npx cypress open
@@ -62,7 +63,7 @@ npx cypress open
 # 2. Execute os testes em modo headless (sem interface gráfica)
 npx cypress run
 
-Estrutura do Projeto 🚀
+## Estrutura do Projeto 🚀
 challenge-cypress/
 ├── cypress/
 │   ├── fixtures/       # Arquivos de dados estáticos
@@ -73,7 +74,7 @@ challenge-cypress/
 ├── README.md           # Documentação do projeto
 └── cypress.json        # Configurações do Cypress
 
-Contato 🚀
+##Contato 🚀
 Caso tenha dúvidas ou precise de suporte, entre em contato:
 
 Nome: Izabel Muller
