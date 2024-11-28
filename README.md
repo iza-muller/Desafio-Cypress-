@@ -13,6 +13,20 @@ Este projeto foi desenvolvido como um desafio para demonstrar habilidades em aut
 
 ---
 
+## **Executando os Testes** 🚀
+
+Para executar os testes no Cypress, você pode escolher entre duas opções: usando a interface gráfica do Cypress ou executando os testes em modo headless.
+
+```bash
+# 1. Abra o Test Runner do Cypress
+# Este comando abrirá a interface gráfica do Cypress para executar os testes de forma visual.
+npx cypress open
+
+# 2. Execute os testes em modo headless (sem interface gráfica)
+# Este comando executará os testes diretamente no terminal, ideal para automação e integração contínua.
+npx cypress run
+
+
 ## **Visão Geral** 🚀
 Este projeto utiliza o Cypress para automatizar testes de interface e APIs. O objetivo é simular cenários reais, garantindo que os recursos da aplicação sejam testados de forma eficaz e clara.
 
@@ -39,22 +53,24 @@ Siga os passos abaixo para baixar e configurar o projeto:
 
 ## **Como Instalar o Cypress** 🚀
 
-Para instalar o Cypress e configurá-lo no seu projeto, siga os passos abaixo:
+Siga os passos abaixo para instalar e configurar o Cypress:
 
-1. **Instale o Cypress como dependência de desenvolvimento:**
-   npm install cypress --save-dev
-2. **Verifique a instalação do Cypress:**
-   npx cypress verify
-3 **Inicie o Cypress pela primeira vez:**
-   npx cypress open
-4. **Configure o arquivo cypress.json: Atualize o arquivo cypress.json com as seguintes configurações para personalizar o projeto:**
-{
+```bash
+# Instale o Cypress como dependência de desenvolvimento
+npm install cypress --save-dev
+
+# Verifique a instalação do Cypress
+npx cypress verify
+
+# Abra o Cypress pela primeira vez
+npx cypress open
+
+# (Opcional) Configure o arquivo cypress.json com as seguintes opções:
+echo '{
   "pluginsFile": false,
   "viewportHeight": 880,
   "viewportWidth": 1280
-}
-
-Com isso, o Cypress estará instalado e configurado, pronto para executar seus testes. 🚀
+}' > cypress.json
 
 ---
 
