@@ -37,6 +37,27 @@ Siga os passos abaixo para baixar e configurar o projeto:
 
 ---
 
+## **Como Instalar o Cypress** 🚀
+
+Para instalar o Cypress e configurá-lo no seu projeto, siga os passos abaixo:
+
+1. **Instale o Cypress como dependência de desenvolvimento:**
+   npm install cypress --save-dev
+2. **Verifique a instalação do Cypress:**
+   npx cypress verify
+3 **Inicie o Cypress pela primeira vez:**
+   npx cypress open
+4. **Configure o arquivo cypress.json: Atualize o arquivo cypress.json com as seguintes configurações para personalizar o projeto:**
+{
+  "pluginsFile": false,
+  "viewportHeight": 880,
+  "viewportWidth": 1280
+}
+
+Com isso, o Cypress estará instalado e configurado, pronto para executar seus testes. 🚀
+
+---
+
 ## **Estrutura Básica do Projeto** 🚀
 challenge-cypress/
 ├── cypress/
