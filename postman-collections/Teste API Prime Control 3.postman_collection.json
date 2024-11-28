@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "d84bb9e7-6e48-4ed7-9d43-95eca29a2b41",
+		"name": "Teste API Prime Control 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40045288"
+	},
+	"item": [
+		{
+			"name": "CT001-Teste de exclusão bem-sucedida",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar mensagem de sucesso após exclusão\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"\r",
+							"    // Valida que a resposta contém a mensagem esperada\r",
+							"    pm.expect(jsonData).to.have.property(\"message\", \"Cliente excluído com sucesso!\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api-challenge.primecontrol.com.br/deleteClient/GdmG4VDTD4YKhaKe5rVs",
+					"protocol": "https",
+					"host": [
+						"api-challenge",
+						"primecontrol",
+						"com",
+						"br"
+					],
+					"path": [
+						"deleteClient",
+						"GdmG4VDTD4YKhaKe5rVs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CT002-Teste de cliente não encontrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar mensagem de 404 após tenativa de exclusão de cliente não existente \", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"\r",
+							"    // Valida que a resposta contém a mensagem esperada\r",
+							"    pm.expect(jsonData).to.have.property(\"message\", \"Cliente não encontrado.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api-challenge.primecontrol.com.br/deleteClient/GdmG4VDTD4YKhaKe5rVs",
+					"protocol": "https",
+					"host": [
+						"api-challenge",
+						"primecontrol",
+						"com",
+						"br"
+					],
+					"path": [
+						"deleteClient",
+						"GdmG4VDTD4YKhaKe5rVs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CT003-Teste de exclusão sem ID ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Fixed syntax\r",
+							"pm.test(\"Status code é 400 ou 404\", function () {\r",
+							"  pm.response.to.have.status(400, 404);\r",
+							"});\r",
+							"\r",
+							"// Verificar mensagem de erro:\r",
+							"pm.test(\"Mensagem de erro\", function () {\r",
+							"  pm.expect(pm.response.text()).to.include(\"não é possível deletar\" || \"ID não encontrado\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api-challenge.primecontrol.com.br/deleteClient/",
+					"protocol": "https",
+					"host": [
+						"api-challenge",
+						"primecontrol",
+						"com",
+						"br"
+					],
+					"path": [
+						"deleteClient",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
