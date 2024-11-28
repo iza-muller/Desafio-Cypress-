@@ -7,7 +7,7 @@ describe('Testes de Criação de Conta', () => {
       cy.contains('Criar uma conta').click({ force: true });
   
       // Preencher o campo de email
-      cy.get('input#floatingInput').should('be.visible').type('testuser5@example.com');
+      cy.get('input#floatingInput').should('be.visible').type('testuser10@example.com');
   
       // Preencher o campo de senha
       cy.get('input#floatingPassword').should('be.visible').type('password123');

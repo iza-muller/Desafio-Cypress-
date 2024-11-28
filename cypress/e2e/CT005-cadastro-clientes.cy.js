@@ -47,7 +47,7 @@ describe('CT005 - Realizar Cadastro de Clientes com sucesso', () => {
         cy.get('input[type="checkbox"][value="cypress"]').check({ force: true }); // Cypress
 
         // Passo 6: Fazer upload da foto
-        const imagePath = 'bel.jpg'; // Nome da imagem em cypress/fixtures
+        const imagePath = 'duck.jpg'; // Nome da imagem em cypress/fixtures
         cy.get('input[type="file"]').attachFile(imagePath);
 
         // Passo 7: Verificar se o botão "Salvar" está habilitado após preencher todos os campos

@@ -47,7 +47,7 @@ describe('CT008 - Validar Cadastro de Clientes com Email inválido na aba Perfil
         cy.get('input[type="checkbox"][value="cypress"]').check({ force: true }); // Cypress
 
         // Passo 6: Fazer upload da foto
-        const imagePath = 'bel.jpg'; // Nome da imagem em cypress/fixtures
+        const imagePath = 'duck.jpg'; // Nome da imagem em cypress/fixtures
         cy.get('input[type="file"]').attachFile(imagePath);
 
         // Passo 7: Clicar no botão "Salvar"
