@@ -35,22 +35,22 @@ Siga os passos abaixo para baixar e configurar o projeto:
    git clone https://github.com/iza-muller/challenge-cypress.git
 
 2.  Acesse o diretório do projeto:
-cd challenge-cypress
+  cd challenge-cypress
 
 ---
 
-Como Instalar o Cypress 🚀
-Siga os passos abaixo para instalar e configurar o Cypress:
-# Instale o Cypress como dependência de desenvolvimento
+##**Como Instalar o Cypress** 🚀
+#Siga os passos abaixo para instalar e configurar o Cypress:
+ Instale o Cypress como dependência de desenvolvimento
 npm install cypress --save-dev
 
-# Verifique a instalação do Cypress
+Verifique a instalação do Cypress
 npx cypress verify
 
-# Abra o Cypress pela primeira vez
+ Abra o Cypress pela primeira vez
 npx cypress open
 
-# (Opcional) Configure o arquivo cypress.json com as seguintes opções:
+ (Opcional) Configure o arquivo cypress.json com as seguintes opções:
 echo '{
   "pluginsFile": false,
   "viewportHeight": 880,
