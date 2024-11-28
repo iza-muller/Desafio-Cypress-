@@ -1,82 +1,80 @@
-Aqui está o documento reestruturado conforme o padrão Markdown do GitHub:
-
-Challenge Cypress
-
-
+# Challenge Cypress 🚀
 Este projeto foi desenvolvido como um desafio para demonstrar habilidades em automação de testes utilizando o Cypress.
 
-Índice
+## Índice
+- [Visão Geral](#visão-geral)
+- [Pré-requisitos](#pré-requisitos)
+- [Como Clonar e Configurar](#como-clonar-e-configurar)
+- [Como Instalar o Cypress](#como-instalar-o-cypress)
+- [Executando os Testes](#executando-os-testes)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Contato](#contato)
 
+---
 
-1. #visão-geral
-2. #pré-requisitos
-3. #como-clonar-e-configurar
-4. #como-instalar-o-cypress
-5. #executando-os-testes
-6. #estrutura-do-projeto
-7. #contato
-
-Visão Geral
-
-
+## Visão Geral 🚀
 Este projeto utiliza o Cypress para automatizar testes de interface e APIs, garantindo que os recursos da aplicação sejam testados de forma eficaz.
 
-Pré-requisitos
+---
 
-
+## Pré-requisitos 🚀
 Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
-
-- Node.js (versão 12 ou superior)
-- Git
+- [Node.js](https://nodejs.org/) (versão 12 ou superior)
+- [Git](https://git-scm.com/)
 - Navegador Chrome, Firefox ou Edge
-- Editor de código (recomendado: VSCode)
+- Editor de código (recomendado: [VSCode](https://code.visualstudio.com/))
 
-Como Clonar e Configurar
+---
 
+## Como Clonar e Configurar 🚀
+Siga os passos abaixo para baixar e configurar o projeto:
 
-1. Clone o repositório: git clone https://github.com/iza-muller/challenge-cypress.git
-2. Acesse o diretório do projeto: cd challenge-cypress
+```bash
+# Clone o repositório
+git clone https://github.com/iza-muller/challenge-cypress.git
 
-Como Instalar o Cypress
+# Acesse o diretório do projeto
+cd challenge-cypress
 
+--
 
-1. Instale o Cypress como dependência de desenvolvimento: npm install cypress --save-dev
-2. Verifique a instalação do Cypress: npx cypress verify
-3. Abra o Cypress pela primeira vez: npx cypress open
-4. (Opcional) Configure o arquivo cypress.json:
+## Como Instalar o Cypress 🚀
+Instalação do Cypress
 
+1. Acesse o diretório do projeto.
+2. Crie uma pasta chamada "e2e" na raiz do projeto (se não existir).
+3. Instale o Cypress dentro da pasta "e2e" utilizando o comando:
 
-{
-  "pluginsFile": false,
-  "viewportHeight": 880,
-  "viewportWidth": 1280
-}
+npm install cypress --save-dev
 
+ou
 
-Executando os Testes
+yarn add cypress --dev
 
+Isso garantirá que o Cypress seja instalado corretamente dentro da pasta "e2e", pronta para executar testes de ponta a ponta.
+---
 
-1. Abra o Test Runner do Cypress: npx cypress open
-2. Execute os testes em modo headless: npx cypress run
+## Executando os Testes 🚀
 
-Estrutura do Projeto
+Para executar os testes, você pode escolher entre duas opções:
+# 1. Abra o Test Runner do Cypress
+npx cypress open
 
+# 2. Execute os testes em modo headless (sem interface gráfica)
+npx cypress run
 
-
+## Estrutura do Projeto 🚀
 challenge-cypress/
 ├── cypress/
-│   ├── fixtures/      # Arquivos de dados estáticos
-│   ├── integration/   # Testes automatizados
-│   ├── plugins/       # Configurações de plugins
-│   └── support/       # Comandos customizados
-├── package.json      # Configuração do projeto
-├── README.md         # Documentação do projeto
-└── cypress.json      # Configurações do Cypress
+│   ├── fixtures/       # Arquivos de dados estáticos
+│   ├── integration/    # Testes automatizados
+│   ├── plugins/        # Configurações de plugins
+│   └── support/        # Comandos customizados
+├── package.json        # Configuração do projeto
+├── README.md           # Documentação do projeto
+└── cypress.json        # Configurações do Cypress
 
-
-Contato
-
-
+##Contato 🚀
 Caso tenha dúvidas ou precise de suporte, entre em contato:
 
 Nome: Izabel Muller
