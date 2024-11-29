@@ -67,7 +67,7 @@ npx cypress run
 challenge-cypress/
 ├── cypress/
 │   ├── fixtures/       # Arquivos de dados estáticos
-│   ├── integration/    # Testes automatizados
+│   ├── e2e             # Testes automatizados
 │   ├── plugins/        # Configurações de plugins
 │   └── support/        # Comandos customizados
 ├── package.json        # Configuração do projeto
