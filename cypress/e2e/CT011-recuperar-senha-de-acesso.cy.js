@@ -1,30 +1,34 @@
 describe('CT011 - Recuperar senha de acesso', () => {
-    it('Deve permitir que o usuário recupere sua senha ao clicar em "Esqueci minha senha"', () => {
-        // Passo 1: Acessar a página de login
-        cy.visit('https://challenge.primecontrol.com.br/app');
+  it('Deve permitir que o usuário recupere sua senha ao clicar em "Esqueci minha senha"', () => {
+      // Passo 1: Acessar a página de login
+      cy.visit('https://challenge.primecontrol.com.br/app');
 
-        // Passo 2: Verificar se o link "Esqueci minha senha" está visível
-        cy.get('a.mx-3').contains('Esqueci minha senha')
-          .should('be.visible') // Verificar se o link está visível
-          .click(); // Clicar no link "Esqueci minha senha"
+      // Passo 2: Verificar se o link "Esqueci minha senha" está visível
+      cy.get('a.mx-3').contains('Esqueci minha senha')
+        .should('be.visible') // Verificar se o link está visível
+        .click(); // Clicar no link "Esqueci minha senha"
 
-        // Passo 3: Verificar se foi redirecionado para a página de recuperação de senha
-        cy.url().should('include', '/app/resetsenha'); // Verificar se a URL está correta para recuperação de senha
+      // Passo 3: Verificar se foi redirecionado para a página de recuperação de senha
+      cy.url().should('include', '/app/resetsenha');
 
-        // Passo 4: Aguardar o campo de e-mail aparecer
-        cy.get('input#floatingInput[type="email"]', { timeout: 10000 }).should('be.visible'); // Esperar o campo de e-mail
+      // Passo 4: Preencher com o e-mail gerado do Guerrilla
+      const email = 'testetestet@sharklasers.com'; // Alterar para o email gerado no Guerrilla
+      cy.get('input#floatingInput[type="email"]').type(email); // Preencher com o e-mail gerado
 
-        // Passo 5: Preencher o e-mail para recuperação de senha
-        cy.get('input#floatingInput[type="email"]').type('testuser@example.com'); // Inserir o e-mail válido para recuperação
+      // Passo 5: Clicar no botão "Enviar" para recuperação de senha
+      cy.get('button.w-100.btn.btn-lg.btn-primary.mt-3').click();
 
-        // Passo 6: Clicar no botão "Enviar" para recuperação de senha
-        cy.get('button.w-100.btn.btn-lg.btn-primary.mt-3').click(); // Clicar no botão "Enviar"
+      // Passo 6: Verificar se a mensagem de sucesso é exibida no formato esperado
+      cy.get('div.alert.alert-success.mt-2[role="alert"]', { timeout: 10000 }).should('be.visible')
+        .and('contain.text', 'Email enviado com sucesso');
 
-        // Passo 7: Verificar se uma mensagem de sucesso é exibida
-        cy.get('.alert-success').should('be.visible') // Verificar se a mensagem de sucesso é exibida
-          .and('contain.text', 'Instruções de recuperação de senha enviadas para seu e-mail.');
+      // Passo 7: Simular a recuperação de senha e realizar login com nova senha
+      // (sem precisar acessar o e-mail, a senha será considerada alterada)
+      cy.get('#floatingInput').type(email); // Usar o mesmo email gerado do Guerrilla
+      cy.get('#floatingPassword').type('novaSenha123'); // Nova senha (simulada)
+      cy.get('button[type="button"]').contains('Acessar').click();
 
-        // Passo 8: Verificar se o usuário foi redirecionado para a página de login novamente
-        cy.url().should('include', '/app/login'); // Verificar se o usuário é redirecionado para a página de login
-    });
+      // Passo 8: Validar que o login foi realizado com sucesso
+      cy.url().should('include', '/app/home');
+  });
 });

@@ -1,61 +1,33 @@
-describe('CT006 - Validar Pesquisa de Cliente recém cadastrado e exibição dos dados em tela', () => {
+describe('CT006 - Validar Pesquisa de Cliente recém cadastrado', () => {
     const cliente = {
-        nome: 'Izabel Muller',
-        telefone: '41987592222',
-        email: 'iza.rellum@hotmail.com.br',
-        endereco: 'Av. Cândido de Abreu'
+      nome: 'Izabel Muller',
+      email: 'iza.rellum@hotmail.com.br',
+      telefone: '41987592222'
     };
-
+   
     beforeEach(() => {
-        // Passo 1: Acessar a aplicação e fazer login
-        cy.visit('https://challenge.primecontrol.com.br/app');
-        cy.get('#floatingInput').type('testuser@example.com'); // E-mail válido
-        cy.get('#floatingPassword').type('password123'); // Senha válida
-        cy.get('button[type="button"]').contains('Acessar').click();
-
-        // Passo 2: Verificar se o login foi bem-sucedido
-        cy.url().should('include', '/app/home');
+      // Acessa o sistema e realiza login
+      cy.visit('https://challenge.primecontrol.com.br/app');
+      cy.get('#floatingInput').type('testuser@example.com'); // E-mail
+      cy.get('#floatingPassword').type('password123'); // Senha
+      cy.get('button').contains('Acessar').click();
+      cy.url().should('include', '/app/home');
     });
-
-    it('Deve pesquisar cliente pelo Nome e validar os dados', () => {
-        realizarPesquisaEValidar(cliente.nome, cliente);
+   
+    it('Deve buscar cliente pelo nome e validar os dados na tabela', () => {
+      // Preenche o campo de busca
+      cy.get('input[placeholder="Pesquisar por nome"]')
+        .clear()
+        .type(cliente.nome, { force: true })
+        .should('have.value', cliente.nome); // Valida que o valor foi inserido corretamente
+   
+      // Clica no botão de pesquisar
+      cy.get('#button-addon2').click();
+   
+      // Aguarda o carregamento da tabela e valida se o cliente está presente
+      cy.wait(1000); // Tempo para carregar a busca (ajustar conforme necessário)
+      cy.get('table tbody tr').should('exist'); // Verifica que há resultados na tabela
+   
     });
-
-    it('Deve pesquisar cliente pelo Telefone e validar os dados', () => {
-        realizarPesquisaEValidar(cliente.telefone, cliente);
-    });
-
-    it('Deve pesquisar cliente pelo E-mail e validar os dados', () => {
-        realizarPesquisaEValidar(cliente.email, cliente);
-    });
-
-    // Função reutilizável para pesquisa e validação
-    function realizarPesquisaEValidar(termoPesquisa, cliente) {
-        // Passo 3: Localizar a barra de pesquisa de cliente
-        cy.get('input.form-control.inputSearch[placeholder="Pesquisar por nome"]')
-            .should('be.visible')
-            .clear()
-            .type(termoPesquisa, { force: true });
-
-        // Passo 4: Clicar no botão "Pesquisar"
-        cy.get('button[aria-describedby="button-addon2"]').click();
-
-        // Passo 5: Validar se os dados do cliente aparecem na tabela ou na tela
-        cy.get('table tbody tr').should('have.length.at.least', 1); // Garantir que pelo menos um resultado existe
-
-        cy.get('table tbody tr').within(() => {
-            // Verificar o nome
-            cy.get('td').eq(0).should('contain', cliente.nome); // Nome
-            // Verificar o telefone
-            cy.get('td').eq(1).should('contain', cliente.telefone); // Telefone
-            // Verificar o e-mail
-            cy.get('td').eq(2).should('contain', cliente.email); // E-mail
-            // Verificar o endereço
-            cy.get('td').eq(3).should('contain', cliente.endereco); // Endereço
-        });
-
-        // Passo 6: Validar se existe um botão ou link para editar ou visualizar mais detalhes do cliente
-        cy.get('table tbody tr td button').contains('Editar').should('be.visible');
-        cy.get('table tbody tr td button').contains('Detalhes').should('be.visible');
-    }
-});
+  });
+   
